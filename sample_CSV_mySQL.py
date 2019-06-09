@@ -20,11 +20,11 @@ host='172.20.152.200'
 mySQLengine = create_engine("mysql://%s:%s@%s/?charset=utf8" % (user, password, host))
 
 # Ici, on execute directement du SQL: "USE XXX"
-DBname='goudot_test'
-mySQLengine.execute("USE `goudot_test`;")
+DBname='BDD_Emmanuel'
+mySQLengine.execute("USE %s;" % DBname)
 
 # Lecture du CSV par pandas, noter le format du fichier (local sur /home/goudot/movies/data)
-URL = "file:///home/goudot/movies/data/people.csv"
+URL = "../movies/data/people.csv"
 tbl = pd.read_csv(URL, encoding = 'utf8', sep=';', header=None)
 print(tbl.head())
 
