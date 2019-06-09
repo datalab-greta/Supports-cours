@@ -1,11 +1,10 @@
 library(httr)
-library(jsonlite)
 library(RMySQL)
 
 # Note: voir sample_CSV_mySQL.py pour le clonafe 'movies'
 
 # lecture du CSV
-df <- read.csv2(file="movies/data/people.csv", header=FALSE)
+df <- read.csv2(file="~/movies/data/people.csv", header=FALSE)
 
 # Affichage de qqe lignes
 head(df)
