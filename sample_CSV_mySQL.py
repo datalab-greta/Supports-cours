@@ -7,23 +7,7 @@ Created 05/06/2019
 conda activate py27
 pip install MySQL-python
 
-Récupération des CSV:
-
-goudot@datalabserver:~$ cd 
-goudot@datalabserver:~$ git clone https://github.com/cernoch/movies.git
-Cloning into 'movies'...
-remote: Enumerating objects: 73, done.
-remote: Counting objects: 100% (73/73), done.
-remote: Compressing objects: 100% (41/41), done.
-remote: Total 73 (delta 32), reused 73 (delta 32), pack-reused 0
-Unpacking objects: 100% (73/73), done.
-goudot@datalabserver:~$ ls movies/data/*.csv
-movies/data/actors.csv  movies/data/casts.csv  movies/data/main.csv  movies/data/people.csv  movies/data/remakes.csv  movies/data/studios.csv  movies/data/synonyms.csv
-
 """
-
-
-
 
 # Import librairies
 import pandas as pd
