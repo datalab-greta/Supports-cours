@@ -50,6 +50,5 @@ import os
 import webbrowser
 chemin = os.getcwd() + '/carte_py.html'
 carte.save(chemin)
-print(chemin)
 webbrowser.open('file://' + chemin)
 
