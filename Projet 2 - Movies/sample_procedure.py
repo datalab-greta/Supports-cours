@@ -23,3 +23,5 @@ print(tbl.head(20))
 # print(tbl[tbl.codes=='P'])
 
 # Les Acteurs Directeurs: nombre et 10 derniers ?
+
+# Meme question à partir de la BBD
