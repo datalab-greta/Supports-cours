@@ -12,19 +12,30 @@ pip install MySQL-python
 # Import librairies
 import pandas as pd
 from sqlalchemy import create_engine
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", action="store_true", help="Verbose SQL")
+#~ parser.add_argument("--cred", help="Credentials (myDatalab, pgDatalab)")
+parser.add_argument("--base", help="Répertoire de movies")
+parser.add_argument("--bdd", help="Base de donnée")
+args = parser.parse_args()
 
 # Définition des accès
 user='team'
 password='DataLab@2019'
-host='172.20.152.200'
-mySQLengine = create_engine("mysql://%s:%s@%s/?charset=utf8" % (user, password, host))
+host='127.0.0.1'
+DBname=args.bdd # ex: BDD_Emmanuel?charset=utf8
+mySQLengine = create_engine("mysql://%s:%s@%s/%s" % (user, password, host, DBname))
+rs=mySQLengine.execute("SELECT * FROM people LIMIT 10;")
+for x in rs:
+    print(x)
 
 # Ici, on execute directement du SQL: "USE XXX"
-DBname='BDD_Emmanuel'
-mySQLengine.execute("USE %s;" % DBname)
+#mySQLengine.execute("USE %s;" % DBname)
 
 # Lecture du CSV par pandas, noter le format du fichier (local sur /home/goudot/movies/data)
-URL = "../movies/data/people.csv"
+URL = args.base+"/people.csv"
 tbl = pd.read_csv(URL, encoding = 'utf8', sep=';', header=None)
 print(tbl.head())
 
